@@ -1,62 +1,253 @@
+import React, {Component} from 'react';
 import { AppLoading } from 'expo';
-import { Asset } from 'expo-asset';
+import { Container, Header, Tab, Tabs, TabHeading, Icon, Text, Left, Body, Right, Button, Title, Content, List, ListItem, Thumbnail, Fab, Footer, FooterTab, View, Switch, Input, Item } from 'native-base';
 import * as Font from 'expo-font';
-import React, { useState } from 'react';
-import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
-import AppNavigator from './navigation/AppNavigator';
+export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isReady: false,
+    };
+  }
 
-export default function App(props) {
-  const [isLoadingComplete, setLoadingComplete] = useState(false);
+  async componentDidMount() {
+    await Font.loadAsync({
+      Roboto: require('native-base/Fonts/Roboto.ttf'),
+      Roboto_medium: require('native-base/Fonts/Roboto_medium.ttf'),
+      ...Ionicons.font,
+    });
+    this.setState({ isReady: true });
+  }
 
-  if (!isLoadingComplete && !props.skipLoadingScreen) {
+  render() {
+    if (!this.state.isReady) {
+      return <AppLoading />;
+    }
+
     return (
-      <AppLoading
-        startAsync={loadResourcesAsync}
-        onError={handleLoadingError}
-        onFinish={() => handleFinishLoading(setLoadingComplete)}
-      />
-    );
-  } else {
-    return (
-      <View style={styles.container}>
-        {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-        <AppNavigator />
-      </View>
+      <Container>
+        <Header style={{backgroundColor: "#075E54"}}>
+          <Body>
+            <Title>Whatsapp</Title>
+          </Body>
+          <Right>
+            <Button transparent>
+              <Icon name='search' />
+            </Button>
+            <Button transparent>
+              <Icon name='heart' />
+            </Button>
+            <Button transparent>
+              <Icon name='more' />
+            </Button>
+          </Right>
+        </Header>
+
+        <Tabs style={{backgroundColor: "#075E54"}}>
+          <Tab heading={ <TabHeading style={{backgroundColor: "#075E54"}}><Icon name="camera" /></TabHeading>}>
+          <Text>fafsa</Text>  
+          </Tab>
+          <Tab heading={ <TabHeading style={{backgroundColor: "#075E54"}}><Text>CHAT</Text></TabHeading>}>
+              <Content>
+                <List>
+                  <ListItem avatar>
+                    <Left>
+                      <Thumbnail source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQNdLdQ-vUYdgNZvobPysX-XB5OKdvX3EiBpQL1LcLarj458Sno' }} />
+                    </Left>
+                    <Body>
+                      <Text>Kumar Pratik</Text>
+                      <Text note>Doing what you like will always keep you happy . .</Text>
+                    </Body>
+                    <Right>
+                      <Text note>3:43 pm</Text>
+                    </Right>
+                  </ListItem>
+                </List>
+                <List>
+                  <ListItem avatar>
+                    <Left>
+                      <Thumbnail source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQNdLdQ-vUYdgNZvobPysX-XB5OKdvX3EiBpQL1LcLarj458Sno' }} />
+                    </Left>
+                    <Body>
+                      <Text>Kumar Pratik</Text>
+                      <Text note>Doing what you like will always keep you happy . .</Text>
+                    </Body>
+                    <Right>
+                      <Text note>3:43 pm</Text>
+                    </Right>
+                  </ListItem>
+                </List>
+                <List>
+                  <ListItem avatar>
+                    <Left>
+                      <Thumbnail source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQNdLdQ-vUYdgNZvobPysX-XB5OKdvX3EiBpQL1LcLarj458Sno' }} />
+                    </Left>
+                    <Body>
+                      <Text>Kumar Pratik</Text>
+                      <Text note>Doing what you like will always keep you happy . .</Text>
+                    </Body>
+                    <Right>
+                      <Text note>3:43 pm</Text>
+                    </Right>
+                  </ListItem>
+                </List>
+                <List>
+                  <ListItem avatar>
+                    <Left>
+                      <Thumbnail source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQNdLdQ-vUYdgNZvobPysX-XB5OKdvX3EiBpQL1LcLarj458Sno' }} />
+                    </Left>
+                    <Body>
+                      <Text>Kumar Pratik</Text>
+                      <Text note>Doing what you like will always keep you happy . .</Text>
+                    </Body>
+                    <Right>
+                      <Text note>3:43 pm</Text>
+                    </Right>
+                  </ListItem>
+                </List>
+                <List>
+                  <ListItem avatar>
+                    <Left>
+                      <Thumbnail source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQNdLdQ-vUYdgNZvobPysX-XB5OKdvX3EiBpQL1LcLarj458Sno' }} />
+                    </Left>
+                    <Body>
+                      <Text>Kumar Pratik</Text>
+                      <Text note>Doing what you like will always keep you happy . .</Text>
+                    </Body>
+                    <Right>
+                      <Text note>3:43 pm</Text>
+                    </Right>
+                  </ListItem>
+                </List>
+                <List>
+                  <ListItem avatar>
+                    <Left>
+                      <Thumbnail source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQNdLdQ-vUYdgNZvobPysX-XB5OKdvX3EiBpQL1LcLarj458Sno' }} />
+                    </Left>
+                    <Body>
+                      <Text>Kumar Pratik</Text>
+                      <Text note>Doing what you like will always keep you happy . .</Text>
+                    </Body>
+                    <Right>
+                      <Text note>3:43 pm</Text>
+                    </Right>
+                  </ListItem>
+                </List>
+                <List>
+                  <ListItem avatar>
+                    <Left>
+                      <Thumbnail source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQNdLdQ-vUYdgNZvobPysX-XB5OKdvX3EiBpQL1LcLarj458Sno' }} />
+                    </Left>
+                    <Body>
+                      <Text>Kumar Pratik</Text>
+                      <Text note>Doing what you like will always keep you happy . .</Text>
+                    </Body>
+                    <Right>
+                      <Text note>3:43 pm</Text>
+                    </Right>
+                  </ListItem>
+                </List>
+                <View style={{ flex: 1 }}>
+                  <Fab
+                    active={this.state.active}
+                    direction="up"
+                    containerStyle={{ }}
+                    style={{ backgroundColor: '#5067FF' }}
+                    position="bottomRight"
+                    onPress={() => this.setState({ active: !this.state.active })}>
+                    <Icon name="share" />
+                    <Button style={{ backgroundColor: '#34A34F' }}>
+                      <Icon name="logo-whatsapp" />
+                    </Button>
+                    <Button style={{ backgroundColor: '#3B5998' }}>
+                      <Icon name="logo-facebook" />
+                    </Button>
+                    <Button disabled style={{ backgroundColor: '#DD5144' }}>
+                      <Icon name="mail" />
+                    </Button>
+                  </Fab>
+                </View>
+              </Content>
+          </Tab>
+          <Tab heading={ <TabHeading style={{backgroundColor: "#075E54"}}><Text>STATUS</Text></TabHeading>}>
+            <List>
+                  <ListItem avatar>
+                    <Left>
+                      <Thumbnail source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQNdLdQ-vUYdgNZvobPysX-XB5OKdvX3EiBpQL1LcLarj458Sno', }} />
+                    <Icon name="add" />
+                    </Left>
+                    <Body>
+                      <Text>Status Saya</Text>
+                      <Text note>Ketuk untuk menambahkan pembaruan</Text>
+                    </Body>
+                    <Right>
+                      <Text note>3:43 pm</Text>
+                    </Right>
+                  </ListItem>
+            </List>
+                  <Item regular>
+                    <Input placeholder='Pembaruan Terkini' />
+                  </Item>
+            <List>
+                  <ListItem avatar>
+                    <Left>
+                      <Thumbnail source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQNdLdQ-vUYdgNZvobPysX-XB5OKdvX3EiBpQL1LcLarj458Sno' }} />
+                    </Left>
+                    <Body>
+                      <Text>Kumar Pratik</Text>
+                      <Text note>Doing what you like will always keep you happy . .</Text>
+                    </Body>
+                    <Right>
+                      <Text note>3:43 pm</Text>
+                    </Right>
+                  </ListItem>
+                  <ListItem avatar>
+                    <Left>
+                      <Thumbnail source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQNdLdQ-vUYdgNZvobPysX-XB5OKdvX3EiBpQL1LcLarj458Sno' }} />
+                    </Left>
+                    <Body>
+                      <Text>Kumar Pratik</Text>
+                      <Text note>Doing what you like will always keep you happy . .</Text>
+                    </Body>
+                    <Right>
+                      <Text note>3:43 pm</Text>
+                    </Right>
+                  </ListItem>
+            </List>
+          </Tab>
+          <Tab heading={ <TabHeading style={{backgroundColor: "#075E54"}}><Text>PANGGILAN</Text></TabHeading>}>
+          <List>
+                  <ListItem avatar>
+                    <Left>
+                      <Thumbnail source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTqonO1aACEKf60gDZBcVio2chDvS9j1q2pV_YaqfO5gpEaYob2' }} />
+                    </Left>
+                    <Body>
+                      <Text>Aroh Claten</Text>
+                      <Text note><Icon name="redo" style={{color: "green"}}/> Kemarin 22.00</Text>
+                    </Body>
+                    <Right>
+                      <Icon name="videocam" />
+                    </Right>
+                  </ListItem>
+                  <ListItem avatar>
+                    <Left>
+                      <Thumbnail source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTARkJKVPt8TZdbt0bxnkV_sO45169YqUWVVK6iR9GiChIcvN5Y' }} />
+                    </Left>
+                    <Body>
+                      <Text>Arief Setya</Text>
+                      <Text note><Icon name="undo" style={{color: "red"}}/> Kemarin 23.00</Text>
+                    </Body>
+                    <Right>
+                      <Icon name="call" />
+                    </Right>
+                  </ListItem>
+            </List>
+          </Tab>
+        </Tabs>
+
+      </Container>
     );
   }
 }
-
-async function loadResourcesAsync() {
-  await Promise.all([
-    Asset.loadAsync([
-      require('./assets/images/robot-dev.png'),
-      require('./assets/images/robot-prod.png'),
-    ]),
-    Font.loadAsync({
-      // This is the font that we are using for our tab bar
-      ...Ionicons.font,
-      // We include SpaceMono because we use it in HomeScreen.js. Feel free to
-      // remove this if you are not using it in your app
-      'space-mono': require('./assets/fonts/SpaceMono-Regular.ttf'),
-    }),
-  ]);
-}
-
-function handleLoadingError(error) {
-  // In this case, you might want to report the error to your error reporting
-  // service, for example Sentry
-  console.warn(error);
-}
-
-function handleFinishLoading(setLoadingComplete) {
-  setLoadingComplete(true);
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-});
