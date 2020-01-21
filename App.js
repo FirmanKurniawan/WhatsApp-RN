@@ -3,6 +3,7 @@ import { AppLoading } from 'expo';
 import { Container, Header, Tab, Tabs, TabHeading, Icon, Text, Left, Body, Right, Button, Title, Content, List, ListItem, Thumbnail, Fab, Footer, FooterTab, View, Switch, Input, Item } from 'native-base';
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
+import TabCamera from './TabCamera.js';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -30,7 +31,7 @@ export default class App extends React.Component {
       <Container>
         <Header style={{backgroundColor: "#075E54"}}>
           <Body>
-            <Title>Whatsapp</Title>
+            <Title>WhatsApp</Title>
           </Body>
           <Right>
             <Button transparent>
@@ -47,7 +48,7 @@ export default class App extends React.Component {
 
         <Tabs style={{backgroundColor: "#075E54"}}>
           <Tab heading={ <TabHeading style={{backgroundColor: "#075E54"}}><Icon name="camera" /></TabHeading>}>
-          <Text>fafsa</Text>  
+          <TabCamera />  
           </Tab>
           <Tab heading={ <TabHeading style={{backgroundColor: "#075E54"}}><Text>CHAT</Text></TabHeading>}>
               <Content>
