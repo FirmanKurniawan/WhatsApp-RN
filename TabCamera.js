@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Text, View, TouchableOpacity } from 'react-native';
+import { Icon, Button } from 'native-base';
 import { Camera } from 'expo-camera';
 
 export default function App() {
@@ -26,7 +27,8 @@ export default function App() {
           style={{
             flex: 1,
             backgroundColor: 'transparent',
-            flexDirection: 'row',
+            paddingTop:400,
+            marginRight:160
           }}>
           <TouchableOpacity
             style={{
@@ -41,7 +43,7 @@ export default function App() {
                   : Camera.Constants.Type.back
               );
             }}>
-            <Text style={{ fontSize: 18, marginBottom: 10, color: 'white' }}> Flip </Text>
+            <Text style={{color: 'white' }}> <Icon name="reverse-camera" style={{color: 'white', fontSize: 40}} /> </Text>
           </TouchableOpacity>
         </View>
       </Camera>
